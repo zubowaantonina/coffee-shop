@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <hero-view />
+    <router-view></router-view>
     <footer-component />
   </div>
 </template>
@@ -14,4 +14,4 @@ export default {
 </script>
 
 <style scoped></style>
-import FooterComponentVue from './components/FooterComponent.vue';
+
