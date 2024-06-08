@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-           <nav-bar-component/>
+            <nav-bar-component />
           </div>
         </div>
         <div class="row">
@@ -59,10 +59,9 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-                <card-product/>
-                <card-product/>
-                <card-product/>
-             
+              <card-product />
+              <card-product />
+              <card-product />
             </div>
           </div>
         </div>
@@ -73,10 +72,33 @@
 
 <script>
 import CardProduct from "@/components/CardProduct.vue";
-import NavBarComponent from "@/components/NavBarComponent.vue"
+import NavBarComponent from "@/components/NavBarComponent.vue";
 
 export default {
-components:{NavBarComponent,CardProduct}
-}
+  components: { NavBarComponent, CardProduct },
+  data() {
+    return {
+      bestsellers: [
+        {
+          id: 0,
+          name: "Solimo Coffee Beans 2kg",
+          price:10.73,
+          image:'coffee-1.jpg'
+        },
+        {
+          id: 1,
+          name: "Presto Coffee Beans 1kg",
+          price:15.99,
+          image:'coffee-2.jpg'
+        },
+        {
+          id: 2,
+          name: "AROMISTICO Coffee 1kg",
+          price:6.99,
+          image:'coffee-3.jpg'
+        },
+      ],
+    };
+  },
+};
 </script>
-
