@@ -96,7 +96,7 @@
 <script>
 import CardProduct from "@/components/CardProduct.vue";
 import NavBarComponent from "@/components/NavBarComponent.vue";
-
+import { v4 as uuidv4 } from 'uuid';
 export default {
   components: { NavBarComponent, CardProduct },
   data() {
@@ -104,37 +104,37 @@ export default {
       goods:{
         other: [
         {
-          id: 0,
+          id:uuidv4(),
           name: "Solimo Coffee Beans 2kg",
           price: 10.73,
           image: "coffee-1.jpg",
         },
         {
-          id: 1,
+          id:uuidv4(),
           name: "Presto Coffee Beans 1kg",
           price: 15.99,
           image: "coffee-2.jpg",
         },
         {
-          id: 2,
+          id:uuidv4(),
           name: "AROMISTICO Coffee 1kg",
           price: 6.99,
           image: "coffee-3.jpg",
         },
         {
-          id: 3,
+          id:uuidv4(),
           name: "Solimo Coffee Beans 2kg",
           price: 10.73,
           image: "coffee-1.jpg",
         },
         {
-          id: 4,
+          id:uuidv4(),
           name: "Presto Coffee Beans 1kg",
           price: 15.99,
           image: "coffee-2.jpg",
         },
         {
-          id: 5,
+          id:uuidv4(),
           name: "AROMISTICO Coffee 1kg",
           price: 6.99,
           image: "coffee-3.jpg",
