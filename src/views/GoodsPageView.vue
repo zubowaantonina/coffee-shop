@@ -49,12 +49,14 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-product
+              v-for="good in goods.other"
+              :key="good.id"
                 classItem="shop__item"
-                :name="goods[0].name"
-                :price="goods[0].price"
-                :image="goods[0].image"
+                :name="good.name"
+                :price="good.price"
+                :image="good.image"
               />
-              <card-product
+              <!-- <card-product
                 classItem="shop__item"
                 :name="goods[1].name"
                 :price="goods[1].price"
@@ -83,7 +85,7 @@
                 :name="goods[5].name"
                 :price="goods[5].price"
                 :image="goods[5].image"
-              />
+              /> -->
             </div>
           </div>
         </div>
@@ -99,7 +101,8 @@ export default {
   components: { NavBarComponent, CardProduct },
   data() {
     return {
-      goods: [
+      goods:{
+        other: [
         {
           id: 0,
           name: "Solimo Coffee Beans 2kg",
@@ -137,6 +140,7 @@ export default {
           image: "coffee-3.jpg",
         },
       ],
+      }
     };
   },
 };
