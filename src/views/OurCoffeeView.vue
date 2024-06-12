@@ -71,12 +71,12 @@
             <div class="shop__wrapper">
 
               <card-product
-                v-for="coffe in coffee.other"
-                :key="coffe.id"
+                v-for="card in coffee.other"
+                :key="card.id"
                 classItem="shop__item"
-                :name="coffe.name"
-                :price="coffe.price"
-                :image="coffe.image"
+                :name="card.name"
+                :price="card.price"
+                :image="card.image"
               />
 
             </div>

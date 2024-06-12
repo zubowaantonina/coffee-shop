@@ -49,12 +49,12 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-product
-              v-for="good in goods.other"
-              :key="good.id"
+              v-for="card in goods.other"
+              :key="card.id"
                 classItem="shop__item"
-                :name="good.name"
-                :price="good.price"
-                :image="good.image"
+                :name="card.name"
+                :price="card.price"
+                :image="card.image"
               />
               <!-- <card-product
                 classItem="shop__item"
