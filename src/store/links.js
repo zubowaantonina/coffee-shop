@@ -28,13 +28,13 @@ const links = {
       },
     ],
   },
-  getters:{
-    getHeaderLinks(state){
-        return {header:state.header, other:state.other}
+  getters: {
+    getHeaderLinks(state) {
+      return { header: state.header, other: state.other };
     },
-    getFooterLinks(state){
-        return {footer:state.footer, other:state.other}
-    }
-  }
+    getFooterLinks(state) {
+      return { footer: state.footer, other: state.other };
+    },
+  },
 };
 export default links;

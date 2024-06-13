@@ -21,7 +21,7 @@ export default {
       required: true,
     },
     classItem: String,
-    required:false
+    required: false,
   },
 };
 </script>

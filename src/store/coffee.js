@@ -41,7 +41,7 @@ const coffee = {
   },
   getters: {
     getCoffee(state) {
-      return { other:state.other };
+      return { other: state.other };
     },
   },
 };

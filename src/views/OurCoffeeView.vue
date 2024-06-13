@@ -69,7 +69,6 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-
               <card-product
                 v-for="card in coffee.other"
                 :key="card.id"
@@ -78,7 +77,6 @@
                 :price="card.price"
                 :image="card.image"
               />
-
             </div>
           </div>
         </div>
@@ -90,58 +88,13 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardProduct from "@/components/CardProduct.vue";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 export default {
-  
   components: { NavBarComponent, CardProduct },
-  computed:{
-    coffee(){
-      return this.$store.getters['getCoffee']
-    }
-  }
-  // data() {
-  //   return {
-  //     coffee: {
-  //       // other: [
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "Solimo Coffee Beans 2kg",
-  //       //     price: 10.73,
-  //       //     image: "coffee-1.jpg",
-  //       //   },
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "Presto Coffee Beans 1kg",
-  //       //     price: 15.99,
-  //       //     image: "coffee-2.jpg",
-  //       //   },
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "AROMISTICO Coffee 1kg",
-  //       //     price: 6.99,
-  //       //     image: "coffee-3.jpg",
-  //       //   },
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "Solimo Coffee Beans 2kg",
-  //       //     price: 10.73,
-  //       //     image: "coffee-1.jpg",
-  //       //   },
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "Presto Coffee Beans 1kg",
-  //       //     price: 15.99,
-  //       //     image: "coffee-2.jpg",
-  //       //   },
-  //       //   {
-  //       //     id:uuidv4(),
-  //       //     name: "AROMISTICO Coffee 1kg",
-  //       //     price: 6.99,
-  //       //     image: "coffee-3.jpg",
-  //       //   },
-  //       // ],
-  //     },
-  //   };
-  // },
+  computed: {
+    coffee() {
+      return this.$store.getters["getCoffee"];
+    },
+  },
 };
 </script>

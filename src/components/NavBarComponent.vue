@@ -23,11 +23,10 @@
 import LinksItem from "@/components/LinksItem";
 export default {
   components: { LinksItem },
-  computed:{
-    links(){
-      return this.$store.getters['getHeaderLinks']
-    }
-  }
-  
+  computed: {
+    links() {
+      return this.$store.getters["getHeaderLinks"];
+    },
+  },
 };
 </script>

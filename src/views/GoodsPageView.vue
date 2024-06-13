@@ -49,43 +49,13 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-product
-              v-for="card in goods.other"
-              :key="card.id"
+                v-for="card in goods.other"
+                :key="card.id"
                 classItem="shop__item"
                 :name="card.name"
                 :price="card.price"
                 :image="card.image"
               />
-              <!-- <card-product
-                classItem="shop__item"
-                :name="goods[1].name"
-                :price="goods[1].price"
-                :image="goods[1].image"
-              />
-              <card-product
-                classItem="shop__item"
-                :name="goods[2].name"
-                :price="goods[2].price"
-                :image="goods[2].image"
-              />
-              <card-product
-                classItem="shop__item"
-                :name="goods[3].name"
-                :price="goods[3].price"
-                :image="goods[3].image"
-              />
-              <card-product
-                classItem="shop__item"
-                :name="goods[4].name"
-                :price="goods[4].price"
-                :image="goods[4].image"
-              />
-              <card-product
-                classItem="shop__item"
-                :name="goods[5].name"
-                :price="goods[5].price"
-                :image="goods[5].image"
-              /> -->
             </div>
           </div>
         </div>
@@ -96,57 +66,13 @@
 <script>
 import CardProduct from "@/components/CardProduct.vue";
 import NavBarComponent from "@/components/NavBarComponent.vue";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 export default {
   components: { NavBarComponent, CardProduct },
-  computed:{
-    goods(){
-      return this.$store.getters['getCoods']
-    }
-  }
-  // data() {
-  //   return {
-  //     goods:{
-  //       other: [
-  //       {
-  //         id:uuidv4(),
-  //         name: "Solimo Coffee Beans 2kg",
-  //         price: 10.73,
-  //         image: "coffee-1.jpg",
-  //       },
-  //       {
-  //         id:uuidv4(),
-  //         name: "Presto Coffee Beans 1kg",
-  //         price: 15.99,
-  //         image: "coffee-2.jpg",
-  //       },
-  //       {
-  //         id:uuidv4(),
-  //         name: "AROMISTICO Coffee 1kg",
-  //         price: 6.99,
-  //         image: "coffee-3.jpg",
-  //       },
-  //       {
-  //         id:uuidv4(),
-  //         name: "Solimo Coffee Beans 2kg",
-  //         price: 10.73,
-  //         image: "coffee-1.jpg",
-  //       },
-  //       {
-  //         id:uuidv4(),
-  //         name: "Presto Coffee Beans 1kg",
-  //         price: 15.99,
-  //         image: "coffee-2.jpg",
-  //       },
-  //       {
-  //         id:uuidv4(),
-  //         name: "AROMISTICO Coffee 1kg",
-  //         price: 6.99,
-  //         image: "coffee-3.jpg",
-  //       },
-  //     ],
-  //     }
-  //   };
-  // },
+  computed: {
+    goods() {
+      return this.$store.getters["getCoods"];
+    },
+  },
 };
 </script>
