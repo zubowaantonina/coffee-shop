@@ -49,7 +49,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-product
-                v-for="card in goods.other"
+                v-for="card in goods"
                 :key="card.id"
                 classItem="shop__item"
                 :name="card.name"

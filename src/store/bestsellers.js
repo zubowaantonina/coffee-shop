@@ -1,7 +1,7 @@
 
 const bestsellers={
     state: {
-        other: [
+      bestsellers: [
             {
               id: 0,
               name: "Solimo Coffee Beans 2kg",
@@ -24,7 +24,8 @@ const bestsellers={
       },
       getters: {
         getBestsellers(state) {
-          return { other: state.other };
+          // return { other: state.other };
+          return state.bestsellers
         },
       },
 }

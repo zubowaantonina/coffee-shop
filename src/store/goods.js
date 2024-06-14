@@ -1,6 +1,6 @@
 const goods = {
   state: {
-    other: [
+    goods: [
       {
         id: 0,
         name: "Solimo Coffee Beans 2kg",
@@ -41,7 +41,7 @@ const goods = {
   },
   getters: {
     getCoods(state) {
-      return { other: state.other };
+      return state.goods
     },
   },
 };

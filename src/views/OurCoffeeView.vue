@@ -70,7 +70,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-product
-                v-for="card in coffee.other"
+                v-for="card in coffee"
                 :key="card.id"
                 classItem="shop__item"
                 :name="card.name"

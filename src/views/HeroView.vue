@@ -64,16 +64,14 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              
               <card-product
-                v-for="card in bestsellers.other"
+                v-for="card in bestsellers"
                 classItem="best__item"
                 :key="card.id"
                 :name="card.name"
                 :price="card.price"
                 :image="card.image"
               />
-             
             </div>
           </div>
         </div>
