@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5 offset-1">
-            <img class="shop__girl" alt="coffee_item" :src="product.image" />
+            <img class="shop__girl" col-lg-12 alt="coffee_item" :src="product.image" />
           </div>
           <div class="col-lg-4">
             <div class="title">About it</div>
