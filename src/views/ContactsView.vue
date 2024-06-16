@@ -30,10 +30,10 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input  v-model="form.name" type="text" class="form-control" id="name-input" />
+                  <input  v-model="name" type="text" class="form-control" id="name-input" />
                 </div>
               </div>
-
+<pre>{{ v$ }}</pre>
               <div class="form-group row">
                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                   <label for="email-input" class="mb-0">
@@ -42,7 +42,7 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input  v-model="form.email" type="email" class="form-control" id="email-input" />
+                  <input  v-model="email" type="email" class="form-control" id="email-input" />
                 </div>
               </div>
 
@@ -51,7 +51,7 @@
                   <label for="phone-input" class="mb-0"> Phone </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input  v-model="form.phone" type="tel" class="form-control" id="phone-input" />
+                  <input  v-model="phone" type="tel" class="form-control" id="phone-input" />
                 </div>
               </div>
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col col-12">
                   <textarea
-                    v-model="form.message"
+                    v-model="message"
                     class="form-control"
                     name="message"
                     id="message"
@@ -88,22 +88,33 @@
 </template>
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 
 export default {
+  setup () {
+    return { v$: useVuelidate() }
+  },
   data() {
     return {
-      form: {
-        name: "",
+      name: "",
         email: "",
         phone: "",
         message: ""
-      },
     };
   },
   components: { NavBarComponent },
+  validations () {
+    return {
+      name:  { required },
+        email:  { required, email },
+        phone:  { required },
+        message:  {  }
+    }
+  },
   methods:{
     submit(){
-        console.log(this.form);
+        // console.log(this.form);
     }
   }
 };
