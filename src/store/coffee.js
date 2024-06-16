@@ -39,13 +39,23 @@ const coffee = {
       },
     ],
   },
+  mutations: {
+    setCoffeeData(state, data) {
+      state.coffee = data;
+    },
+  },
+  actions: {
+    setCoffeeData({ commit }, data) {
+      commit("setCoffeeData", data);
+    },
+  },
   getters: {
     getCoffee(state) {
       return state.coffee;
     },
     getProductById(state) {
       return (id) => {
-        return state.coffee.find((card)=>card.id === +id)
+        return state.coffee.find((card) => card.id === +id);
       };
     },
   },

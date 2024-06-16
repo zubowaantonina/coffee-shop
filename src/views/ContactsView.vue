@@ -36,12 +36,12 @@
                     class="form-control"
                     id="name-input"
                   />
-                  <span v-for="error in v$.name.$errors"
-                  :key="error.$uid"
-                  >{{ error.$message }}</span>
+                  <span v-for="error in v$.name.$errors" :key="error.$uid">{{
+                    error.$message
+                  }}</span>
                 </div>
               </div>
-             
+
               <div class="form-group row">
                 <div class="col col-12 col-sm-3 d-flex align-items-start">
                   <label for="email-input" class="mb-0">
@@ -56,9 +56,9 @@
                     class="form-control"
                     id="email-input"
                   />
-                  <span v-for="error in v$.email.$errors"
-                  :key="error.$uid"
-                  >{{ error.$message }}</span>
+                  <span v-for="error in v$.email.$errors" :key="error.$uid">{{
+                    error.$message
+                  }}</span>
                 </div>
               </div>
 
@@ -73,9 +73,9 @@
                     class="form-control"
                     id="phone-input"
                   />
-                  <span v-for="error in v$.phone.$errors"
-                  :key="error.$uid"
-                  >{{ error.$message }}</span>
+                  <span v-for="error in v$.phone.$errors" :key="error.$uid">{{
+                    error.$message
+                  }}</span>
                 </div>
               </div>
 
@@ -95,11 +95,10 @@
                     rows="5"
                     placeholder="Leave your comments here"
                   ></textarea>
-                  <span v-for="error in v$.message.$errors"
-                  :key="error.$uid"
-                  >{{ error.$message }}</span>
+                  <span v-for="error in v$.message.$errors" :key="error.$uid">{{
+                    error.$message
+                  }}</span>
                 </div>
-               
               </div>
 
               <div class="row">
@@ -118,9 +117,8 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, maxLength } from "@vuelidate/validators";
-import { helpers } from '@vuelidate/validators'
-import { minLength } from '../validators/minLengh';
-
+import { helpers } from "@vuelidate/validators";
+import { minLength } from "../validators/minLengh";
 
 export default {
   setup() {
@@ -139,23 +137,43 @@ export default {
     return {
       name: { required },
       email: { required, email },
-      phone: {  },
-      message: {required,
-         maxLength:maxLength(20),
-          minLength: helpers.withMessage('this value min 5', minLength)
-        },
+      phone: {},
+      message: {
+        required,
+        maxLength: maxLength(20),
+        minLength: helpers.withMessage("this value min 5", minLength),
+      },
     };
   },
   methods: {
-   async submit() {
-      const isFormCorrect = await this.v$.$validate()
-      if (!isFormCorrect) return
-     console.log(
-    {  name: this.name,
-      email: this.email,
-      phone: this.phone,
-      message: this.message,}
-     );
+    async submit() {
+      const isFormCorrect = await this.v$.$validate();
+      if (!isFormCorrect) return;
+      console.log({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+      });
+      const message = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        message: this.message,
+      };
+
+      fetch("http://localhost:4545/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+      });
+      (this.name = ""),
+        (this.email = ""),
+        (this.phone = ""),
+        (this.terms = false),
+        (this.message = "");
     },
   },
 };

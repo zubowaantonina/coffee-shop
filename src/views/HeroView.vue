@@ -68,7 +68,6 @@
                 v-for="card in bestsellers"
                 classItem="best__item"
                 :key="card.id"
-               
                 :card="card"
               />
             </div>
@@ -99,10 +98,13 @@ export default {
       });
     },
   },
+  mounted() {
+    fetch("http://localhost:4545/bestsellers")
+      .then((res) => res.json())
 
-  // mounted() {
-  //   // console.log(document.getElementById('about'));
-  //   this.smoothScroll();
-  // },
+      .then((data) => {
+        this.$store.dispatch("setBestsellersData", data);
+      });
+  },
 };
 </script>

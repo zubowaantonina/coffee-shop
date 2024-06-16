@@ -103,7 +103,14 @@ export default {
    };        
 },
   mixins:[navigate],
-
+  mounted() {
+    fetch('http://localhost:4545/coffee')
+    .then(res => res.json())
+   
+    .then(data => {
+      this.$store.dispatch('setCoffeeData', data);
+    })
+  }
  
  
 };
