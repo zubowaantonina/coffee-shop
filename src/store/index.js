@@ -4,6 +4,7 @@ import links from "./links";
 import coffee from "./coffee";
 import goods from "./goods";
 import bestsellers from "./bestsellers";
+import isLoading from "./isLoading";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -12,6 +13,7 @@ const store = new Vuex.Store({
     coffee,
     goods,
     bestsellers,
+    isLoading
   },
 });
 export default store;
