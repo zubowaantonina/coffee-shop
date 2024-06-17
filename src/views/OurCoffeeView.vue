@@ -52,16 +52,25 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
+                @input="onSearch($event)"
               />
             </form>
           </div>
           <div class="col-lg-4">
             <div class="shop__filter">
-              <div class="shop__filter-label">Or filter</div>
+              <div class="shop__filter-label" @click="onSort('')">
+                Or filter
+              </div>
               <div class="shop__filter-group">
-                <button class="shop__filter-btn">Brazil</button>
-                <button class="shop__filter-btn">Kenya</button>
-                <button class="shop__filter-btn">Columbia</button>
+                <button class="shop__filter-btn" @click="onSort('Brazil')">
+                  Brazil
+                </button>
+                <button class="shop__filter-btn" @click="onSort('Kenya')">
+                  Kenya
+                </button>
+                <button class="shop__filter-btn" @click="onSort('Columbia')">
+                  Columbia
+                </button>
               </div>
             </div>
           </div>
@@ -77,7 +86,7 @@
                 @onNavigate="navigate"
               />
             </div>
-            <spinner-component v-else/>
+            <spinner-component v-else />
           </div>
         </div>
       </div>
@@ -90,6 +99,7 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardProduct from "@/components/CardProduct.vue";
 import { v4 as uuidv4 } from "uuid";
 import SpinnerComponent from "@/components/SpinnerComponent.vue";
+import debounce from "debounce";
 
 import { navigate } from "../mixins/navigate";
 import { spinner } from "../mixins/spinner";
@@ -99,20 +109,41 @@ export default {
     coffee() {
       return this.$store.getters["getCoffee"];
     },
+    searchValue: {
+      set(value) {
+        this.$store.dispatch("setSearchValue", value);
+      },
+      get() {
+        return this.$store.getters["getSearchValue"];
+      },
+    },
   },
+
   data() {
     return {
       name: "coffee",
     };
   },
-  mixins: [navigate,spinner],
+  mixins: [navigate, spinner],
   mounted() {
     fetch("http://localhost:4545/coffee")
       .then((res) => res.json())
-
       .then((data) => {
         this.$store.dispatch("setCoffeeData", data);
       });
+  },
+  methods: {
+    onSearch: debounce(function (event) {
+      this.onSort(event.target.value);
+    }, 500),
+
+    onSort(value) {
+      fetch(`http://localhost:4545/coffee?q=${value}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
+    },
   },
 };
 </script>
