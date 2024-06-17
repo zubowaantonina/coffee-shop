@@ -87,7 +87,7 @@ export default {
 },
 mixins: [navigate,spinner],
   mounted() {
-    fetch('http://localhost:4545/coffee')
+    fetch('http://localhost:4545/goods')
     .then(res => res.json())
    
     .then(data => {

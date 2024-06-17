@@ -18,7 +18,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5 offset-1">
-            <img class="shop__girl col-lg-12"  alt="coffee_item" :src="product.image" />
+            <img
+              class="shop__girl col-lg-12"
+              alt="coffee_item"
+              :src="product.image"
+            />
           </div>
           <div class="col-lg-4">
             <div class="title">About it</div>
@@ -27,19 +31,17 @@
               src="@/assets/logo/Beans_logo_dark.svg"
               alt="Beans logo"
             />
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.country">
               <span>Country:</span>
               {{ product.country }}
             </div>
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.description">
               <span>Description:</span>
-            {{ product.description }}
+              {{ product.description }}
             </div>
             <div class="shop__point">
               <span>Price: </span>
-              <span class="shop__point-price">{{
-                product.price 
-              }}</span>
+              <span class="shop__point-price">{{ product.price }}</span>
             </div>
           </div>
         </div>
@@ -54,21 +56,20 @@ export default {
   components: { NavBarComponent },
   data() {
     return {
-      product:null
-     
+      product: null,
     };
   },
   mounted() {
-    fetch(`http://localhost:4545/coffee/${this.$route.params.id}`)
+    fetch(`http://localhost:4545/${this.pageName}/${this.$route.params.id}`)
       .then((res) => res.json())
 
       .then((data) => {
-       this.product = data
+        this.product = data;
         // this.$store.dispatch('setCoffeeData', data);
       });
   },
-  destroyed(){
-    this.product=null
+  destroyed() {
+    this.product = null;
   },
   computed: {
     pageName() {
