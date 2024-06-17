@@ -4,7 +4,7 @@ export const spinner = {
 	
 		setTimeout(() => {
 		  this.$store.dispatch('setIsLoading', false)
-		}, 1500)
+		}, 1000)
 	},
 	computed: {
 		isLoading() {

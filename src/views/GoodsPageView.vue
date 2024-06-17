@@ -56,7 +56,7 @@
                 @onNavigate="navigate"
               />
             </div>
-            <spinner-component v-else/>
+            <spinner-component v-else />
             <!-- <spinner-component /> -->
           </div>
         </div>
@@ -70,29 +70,29 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import { v4 as uuidv4 } from "uuid";
 import SpinnerComponent from "@/components/SpinnerComponent.vue";
 
-import {navigate} from "../mixins/navigate"
-import {spinner} from "../mixins/spinner"
+import { navigate } from "../mixins/navigate";
+import { spinner } from "../mixins/spinner";
 
 export default {
-  components: { NavBarComponent, CardProduct, SpinnerComponent},
+  components: { NavBarComponent, CardProduct, SpinnerComponent },
   computed: {
     goods() {
       return this.$store.getters["getCoods"];
     },
   },
   data() {
-   return {
-    name:'goods'
-   };        
-},
-mixins: [navigate,spinner],
+    return {
+      name: "goods",
+    };
+  },
+  mixins: [navigate, spinner],
   mounted() {
-    fetch('http://localhost:4545/coffee')
-    .then(res => res.json())
-   
-    .then(data => {
-      this.$store.dispatch('setGoodseData', data);
-    })
-  }
+    fetch("http://localhost:4545/goods")
+      .then((res) => res.json())
+
+      .then((data) => {
+        this.$store.dispatch("setGoodseData", data);
+      });
+  },
 };
 </script>
